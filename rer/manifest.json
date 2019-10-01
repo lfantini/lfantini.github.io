@@ -1,0 +1,21 @@
+{
+  "short_name": "RER B",
+  "name": "RER B Gif-Luxembourg",
+  "icons": [
+    {
+      "src": "logo-rer-B.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-rer-B-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#14489e",
+  "background_color": "#14489e",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
