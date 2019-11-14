@@ -4,9 +4,9 @@ $(function () {
 
     var getData = function () {
 
-        var schedules_url = 'https://api-ratp.pierre-grimaud.fr/v3/schedules/rers/b/gif+sur+yvette/A';
-        var schedules2_url = 'https://api-ratp.pierre-grimaud.fr/v3/schedules/rers/b/chatelet-les-halles/R';
-        var traffic_url = 'https://api-ratp.pierre-grimaud.fr/v3/traffic/rers/b';
+        var schedules_url = 'https://api-ratp.pierre-grimaud.fr/v4/schedules/rers/b/gif+sur+yvette/A';
+        var schedules2_url = 'https://api-ratp.pierre-grimaud.fr/v4/schedules/rers/b/chatelet-les-halles/R';
+        var traffic_url = 'https://api-ratp.pierre-grimaud.fr/v4/traffic/rers/b';
 
         $.when($.getJSON(schedules_url), $.getJSON(schedules2_url), $.getJSON(traffic_url)).done(function (schedules, schedules2, traffic) {
             var date = new Date(),
