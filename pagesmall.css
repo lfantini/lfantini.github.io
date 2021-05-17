@@ -6,7 +6,7 @@ nav ul li a {
     padding-top: 13px;
     padding-bottom: 13px;
     font-size: 17px;
-    max-width: 20vw;
+    min-width: 15vw;
 }
 
 nav ul li a.invisible {
@@ -98,7 +98,7 @@ header {
 
 h1 {
     padding-top: 3px;
-    font-size: 50px;
+    font-size: 45px;
 }
 
 header h3 {
