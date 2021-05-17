@@ -33,8 +33,6 @@ ol li {
 
 
 div.personalpicture img{
-    box-shadow: 0px 0px 25px black;
-    border-radius: 5px;	
 }
 
 
@@ -157,7 +155,7 @@ nav ul li {
 nav ul li a {
     display: inline-block;
     padding: 14px;
-    min-width: 85px;  /* min width here affects the width of the buttons in the menu. has to be changed for mobile */
+    min-width: 15px;  /* min width here affects the width of the buttons in the menu */
     text-align: center;
     color: #FFFFFF;
     font-size: 18px;
@@ -258,6 +256,9 @@ section li {
     color: #3d3d3d;
 }
 
+#s5 {
+    background-color: #13293D;
+}
 
 
 

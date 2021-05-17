@@ -5,10 +5,12 @@
 nav ul li a {
     padding-top: 13px;
     padding-bottom: 13px;
-    padding-left: 0;
-    padding-right: 0;
-    min-width: 20vw;
     font-size: 17px;
+    min-width: 20vw;
+}
+
+nav ul li a.invisible {
+    display: none;
 }
 
 nav ul li a:hover {
@@ -87,41 +89,6 @@ header {
     background-position: right top;
     height:220px;  /* adjusted for padding */
 }
-
-
-
-
-/*  ------------  background for waves on parallax  scroll -------------  */
-
-/*    unfortunately background-attachment: fixed doesn't work on mobile, so I gave up    */
-
-
-transparent {
-    display: none;
-}
-
-/*  this works with image on center 
-html {
-    background-image: url("simplewaves-mobile.png"), linear-gradient(0deg, #247BA0 50%, #006494 50%);   
-    background-size: 600px;
-    background-position: right center;
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-}
-*/
-
-
-/*
-  this works with image on bottom
-html {
-    background-image: url("simplewaves-mobile.png");   
-    background-size: 600px;
-    background-position: right bottom;
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    background-color:#006494;
-}
-*/
 
 
 
