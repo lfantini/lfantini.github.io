@@ -1,0 +1,55 @@
+/* smaller picture on the right */
+
+div.personalpicture{
+	float: right;
+	margin-left: 30px;
+	margin-right: 20px;
+	width: 30%;
+	margin-top: -65px;
+}
+
+
+
+div.otherpicture {
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -70px;
+    width: 42%;
+    text-align: center;
+    font-size: 16px;
+}
+
+div.otherpicture img{
+    box-shadow: 0px 0px 25px black;
+    border-radius: 5px;	
+    width: 100%;
+}
+
+div.otherpicture2 {
+    display: none;
+}
+
+
+
+
+
+header {
+    background-image: url("simplewaves.png");
+    background-size: 1600px;
+    background-position: right top;
+    height: 280px;  /* adjusted for padding */
+}
+
+
+@media screen and (min-width: 1601px) {
+  header {
+    background-size: 100% 100%;
+  }
+}
+
+
+
+div.vertspace {
+    margin-bottom:1.1cm;
+}
