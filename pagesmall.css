@@ -6,7 +6,7 @@ nav ul li a {
     padding-top: 13px;
     padding-bottom: 13px;
     font-size: 17px;
-    min-width: 20vw;
+    max-width: 20vw;
 }
 
 nav ul li a.invisible {
