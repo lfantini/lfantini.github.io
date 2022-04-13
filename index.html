@@ -1,67 +1,709 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <link href="manifest.json" rel="manifest"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap-cosmo.css" rel="stylesheet"/>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
-    <link href="css/fix.css" rel="stylesheet"/>
-    <meta name="robots" content="noindex,nofollow">
-    <link rel="icon" href="logo-rer-B.png" type="image/x-icon" />
-    <title>RER B Bures-Lozère</title>
-  </head>
-  <body>
-    <div id="content"></div>
-    <script type="text/x-template" id="page-template">
-      <table class="table">
-        <tbody>
-          <tr class="tr-header">
-            <td class="td1" style="position: relative">
-              <a href="plan-metro-paris.jpg"><img src="rerB2.png" alt="link to metro plan" class="rer-logo"></a> 
-              <p style="margin-top:80px"> Bures</p>
-            </td>
-            <td class="td2-header"><p><%= current_time %></p></td>
-          </tr>
-
-          <% _.map(horaires, function (horaire, i) { %>
-            <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal" style="border-bottom:1px solid #d6dcd8">
-              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('A','Gare du Nord').replace('E','Aéroport CDG 2').replace('I','Mitry-Claye').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace').replace('Q','La Plaine - Stade de France') %> (<%= horaire.code %>)</p></td>
-              <td class="td2"><p><%= horaire.message.replace('Train ','') %> </p></td>
-            </tr>
-          <% }) %>
-
-
-          <tr class="tr-header">
-            <td class="td1">
-                <p><br/>Lozère</p>
-            </td>
-          </tr>
-          <% _.map(horaires2, function (horaire, i) { %>
-            <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal">
-              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('S','Robinson').replace('P','Saint-Rémy-les-Chevreuses').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace') %> (<%= horaire.code %>)</p></td>
-              <td class="td2"><p><%= horaire.message.replace('Train ','') %></p></td>
-            </tr>
-          <% }) %>
-
-          <tr class="tr-trafic">
-            <td class="tdfull" colspan="2"><p><i><%= traffic %></i></p></td>
-          </tr>
-          
-        </tbody>
-      </table>      
-    </script>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/underscore.min.js"></script>
-    <script src="js/main.js"></script>
-
+<!Doctype Html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Lorenzo Fantini - École Polytechnique</title>
+	<meta name="description" content="Homepage of Lorenzo Fantini" />
+	<meta name="keywords" content="homepage, Lorenzo Fantini, Mathematics, Math, Mathematician, Mathématiques, Mathématicien, Algebraic Geometry, Singularity Theory, Berkovich" />
+	<meta name="author" content="Lorenzo Fantini" />
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1B98E0">
+	<link type="text/css" rel="stylesheet" href="page.css">
+	<link type="text/css" rel="stylesheet" media="only screen and (max-width: 600px)" href="pagesmall.css" />
+	<link type="text/css" rel="stylesheet" media="only screen and (min-width: 601px)" href="pagebig.css" />
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-config" content="browserconfig.xml">
 <script>
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker
-           .register('sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58396591-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+
+
+<body>
+
+
+
+<header id="s0">
+
+<div class="text">
+    <h1>Lorenzo Fantini</h1>
+
+    <h3>
+	<span>
+	École Polytechnique
+	</span>
+    </h3>
+
+    <div class="flags">
+	<img src="en.jpg" style="opacity:0.4" alt="EN">
+	<a href="index-fr.html"><img src="fr.jpg" alt="FR"></a>
+    </div>
+</div>
+
+</header>
+
+
+
+
+<nav class="main-nav">
+    <ul class="clearfix">
+	<div class="text">
+        <li><a href="#s0">Home</a></li>
+        <li><a href="#s1" class="invisible">About me</a></li>
+        <li><a href="#s2">Research</a></li>
+        <li><a href="#s3">Teaching</a></li>
+        <li><a href="#s4">CV</a></li>
+        <li><a href="#s5" class="invisible">Links</a></li>
+	</div>
+    </ul>
+</nav>
+
+
+
+<section id="s1">
+<div class="text">
+
+    <h2>About me</h2>
+
+			<div class="personalpicture">
+				<a href="lorenzo.jpg"><img src="lorenzo-small.jpg" alt="Lorenzo"/></a>
+			</div>
+
+
+<p>
+I am a Monge Professor at the <a href="https://portail.polytechnique.edu/cmls">Centre de Mathématiques Laurent Schwartz</a> of the <a href="https://www.polytechnique.edu/en">École Polytechnique</a>.
+</p>
+
+<p>
+My pronouns are he/him/his.
+</p>
+
+<br>
+<p>
+<b><font size="+1">News alert! →</font></b>
+<a href="https://researchseminars.org/seminar/TGiZ">Tropical Geometry in Zoom</a>, a seminar series on tropical geometry which I organize together with <a href="https://sites.google.com/view/andreasgross/home">Andreas Gross</a> and <a href="https://www.martinulirsch.net/">Martin Ulirsch</a>, has resumed.
+Check the link above for details and send me an email if you want to be added to the mailing list we use to send out the Zoom links. 
+<!--<br><br>
+<b><font size="+1">→</font></b>
+The format of the workshop on non-Archimedean and tropical geometry that I organize together with <a href="https://www.martinulirsch.net/">Martin Ulirsch</a> and <a href="https://www.uni-frankfurt.de/50278019/Prof__Dr__Annette_Werner">Annette Werner</a> has been modified.
+The talks will take place online and will follow a different schedule, starting on October 1st, 2021.
+Updates will be posted soon on the workshop's <a href="https://www.math.uni-frankfurt.de/NonArchTrop2021/">web page</a>.-->
+</p>
+
+
+
+
+<h3>Address</h3>
+
+				Centre de Mathématiques Laurent Schwartz<br>
+				École Polytechnique <br>
+				91128 Palaiseau Cedex - France <br> <br>
+				Office: 06.1011 <br> <br>
+				Email: <span style="color: #D3D3D3">lorenzo.fantini</span><img src="image.png" alt="@" style="height:0.8em; margin-bottom:-0.2em"><span style="color: #D3D3D3">polytechnique.edu</span>  <br> <br>
+
+ 
+  
+
+
+</div>
+</section>
+
+
+
+<section id="s2">
+<div class="text">
+    <h2>Research</h2>
+
+			<div class="otherpicture">
+				<img src="MoebiusTree.jpg" alt="Moebius's Tree"/>
+<br>
+A Berkovich curve drawn by <a href="https://en.wikipedia.org/wiki/Jean_Giraud">Mœbius</a>.
+			</div>
+
+I'm interested in algebraic geometry.<br>
+
+More specifically, I like to apply non-archimedean analytic geometry, especially from the point of view of Berkovich, to problems in birational geometry (singularity theory, Lipschitz geometry, motivic integration), arithmetic geometry (models of curves and ramification), and combinatorics (tropical geometry).
+
+
+			<div class="otherpicture2">
+				<img src="MoebiusTree.jpg" alt="Moebius's Tree"/>
+<br>
+A Berkovich curve drawn by <a href="https://en.wikipedia.org/wiki/Jean_Giraud">Mœbius</a>.
+			</div>
+
+<div class="vertspace"></div><br><div class="vertspace"></div>
+
+
+
+
+			<h3>Preprints</h3>
+			<ol class="publications">
+
+<!--
+REMEMBER TO CHANGE THE STARTING NUMBER FOR THE SECOND LIST IF NEEDED!
+-->
+
+				<li><i>"On Lipschitz Normally Embedded singularities"</i> (with <a href="http://iml.univ-mrs.fr/~pichon/">A. Pichon</a>) <br> 
+&nbsp;&nbsp;&nbsp; – submitted, 18 pages, 2022 (<a href="https://arxiv.org/abs/2202.13725">arXiv</a>)
+
+<button class="abstract" onclick="myFunction(11)">show abstract</button>
+
+<div class="hiddentext" id="b11">
+	Any subanalytic germ <i>(X,0)</i> in <i>(ℝ<sup>n</sup>,0)</i> is  equipped with two natural metrics: its <i>outer metric</i>, induced by the standard Euclidean metric of the ambient space, and its <i>inner metric</i>, which is defined by measuring the shortest length of paths on the germ <i>(X,0)</i>. 
+	The germs for which these two metrics are equivalent up to a bilipschitz homeomorphism, which are called <i>Lipschitz Normally Embedded</i>, have attracted a lot of interest in the last decade.
+	In this survey we discuss many general facts about Lipschitz Normally Embedded singularities, before moving our focus to some recent developments on criteria, examples, and properties of Lipschitz Normally Embedded complex surfaces. 
+	We conclude the manuscript with a list of open questions which we believe to be worth of interest. 
+</div>
+</li>
+
+
+
+
+<li><i>"Polar exploration of complex surface germs"</i> (with <a href="https://andrebelotto.com">A. Belotto da Silva</a>, <a href="https://users.renyi.hu/~nemethi/">A. Némethi</a>, and <a href="http://iml.univ-mrs.fr/~pichon/">A. Pichon</a>) <br> 
+	&nbsp;&nbsp;&nbsp; – submitted, 20 pages, 2021 (<a href="https://arxiv.org/abs/2103.15444">arXiv</a>)
+	
+	<button class="abstract" onclick="myFunction(10)">show abstract</button>
+	
+	<div class="hiddentext" id="b10">
+	We prove that the topological type of a normal surface singularity <i>(X,0)</i> provides finite bounds for the multiplicity and polar multiplicity of <i>(X,0)</i>, as well as for the combinatorics of the families of generic hyperplane sections and of polar curves of the generic plane projections of <i>(X,0)</i>.
+	A key ingredient in our proof is a topological bound of the growth of the Mather discrepancies of <i>(X,0)</i>, which allows us to bound the number of point blowups necessary to achieve factorization of any resolution of <i>(X,0)</i> through its Nash transform.
+	This fits in the program of <i>polar explorations</i>, the quest to determine the generic polar variety of a singular surface germ, to which the final part of the paper is devoted.
+	</div>
+	</li>
+	
+	
+	
+	
+
+
+			</ol>
+
+
+
+
+			<h3>In press</h3>
+			<ol start="3"  class="publications">
+
+<!--
+REMEMBER TO CHANGE THE STARTING NUMBER FOR THE SECOND LIST IF NEEDED!
+-->
+
+
+
+<li><i>"On Lipschitz Normally Embedded complex surface germs"</i> (with <a href="https://andrebelotto.com">A. Belotto da Silva</a> and <a href="http://iml.univ-mrs.fr/~pichon/">A. Pichon</a>) <br> 
+	&nbsp;&nbsp;&nbsp; – To appear in Compositio Mathematica, 34 pages, 2020 (<a href="https://arxiv.org/abs/2006.01773">arXiv</a>)
+	
+	<button class="abstract" onclick="myFunction(9)">show abstract</button>
+	
+	<div class="hiddentext" id="b9"> 
+	We undertake a systematic study of Lipschitz Normally Embedded normal complex surface germs.
+	We prove in particular that the topological type of such a germ determines the combinatorics of its minimal resolution which factors through the blowup of its maximal ideal and through its Nash transform, as well as the polar curve and the discriminant curve of a generic plane projection, thus generalizing results of Spivakovsky and Bondil that were known for minimal surface singularities.
+	In an appendix, we give a new example of a Lipschitz Normally Embedded surface singularity.
+	</div>
+	</li>
+
+				<li><i>"Triangulations of non-archimedean curves, semi-stable reduction, and ramification"</i> (with <a href="https://www.mathstat.dal.ca/~dturchetti/">D. Turchetti</a>) <br> 
+&nbsp;&nbsp;&nbsp; – To appear in Annales de l'Institut Fourier, 45 pages, 2019 (<a href="https://arxiv.org/abs/1911.04407">arXiv</a>)
+
+<button class="abstract" onclick="myFunction(8)">show abstract</button>
+
+<div class="hiddentext" id="b8"> 
+Let <i>K</i> be a complete discretely valued field with algebraically closed residue field and let <i>C</i> be a smooth projective and geometrically connected algebraic <i>K</i>-curve of genus <i>g</i>.
+Assume that <i>g</i>≥2, so that there exists a minimal finite Galois extension <i>L</i> of <i>K</i> such that <i>C</i><sub><i>L</i></sub> admits a semi-stable model.
+In this paper, we study the extension <i>L</i>|<i>K</i> in terms of the <i>minimal triangulation</i> of <i>C</i><sup>an</sup>, a distinguished finite subset of the Berkovich analytification of <i>C</i>.
+	We prove that the least common multiple <i>d</i> of the multiplicities of the points of the minimal triangulation always divides the degree [<i>L</i>:<i>K</i>].
+Moreover, if <i>d</i> is prime to the residue characteristic of <i>K</i>, then we show that <i>d</i>=[<i>L</i>:<i>K</i>], obtaining a new proof of a classical theorem of T. Saito on tame ramification.
+	We then discuss curves with marked points, which allows us to prove analogous results in the case of elliptic curves, whose minimal triangulations we describe in full in the tame case.
+In the last section, we illustrate through several examples how our results explain the failure of the most natural extensions of Saito's theorem to the wildly ramified case.
+</div>
+</li>
+
+			</ol>
+
+
+
+
+
+			<h3>Publications</h3>
+			
+			<ol start="5" class="publications">
+
+
+
+				<li><i>"Inner geometry of complex surfaces: a valuative approach"</i> (with <a href="https://andrebelotto.com">A. Belotto da Silva</a> and <a href="http://iml.univ-mrs.fr/~pichon/">A. Pichon</a>) <br> 
+					&nbsp;&nbsp;&nbsp; – Geometry & Topology, 26(1), 163–219, 2022 (<a href="https://arxiv.org/abs/1905.01677">arXiv</a>)
+					
+					<button class="abstract" onclick="myFunction(7)">show abstract</button>
+					
+					<br>
+					<i><font size="-0.5">
+					Bonus : here are the <a href="fantini-lille.pdf">slides</a> for a 15 minutes long talk I gave about the main result of this paper.
+					</font></i>
+					
+					<div class="hiddentext" id="b7"> 
+					Given a complex analytic germ <i>(X,0)</i> in <i>(ℂ<sup>n</sup>,0)</i>, the standard Hermitian metric of <i>ℂ<sup>n</sup></i> induces a natural arc-length metric on <i>(X,0)</i>, called the inner metric. 
+					We study the inner metric structure of the germ of an isolated complex surface singularity <i>(X,0)</i> by means of a family of natural numerical invariants, called inner rates.
+					Our main result is a formula for the Laplacian of the inner rate function on a space of valuations, the non-archimedean link of <i>(X,0)</i>.  
+					We deduce in particular that the global data consisting of the topology of <i>(X,0)</i>, together with the configuration of a generic hyperplane section and of the polar curve of a generic plane projection of <i>(X,0)</i>, completely determine all the inner rates on <i>(X,0)</i>, and hence the local metric structure of the germ. 
+					Several other applications of our formula are discussed in the paper.
+					</div>
+					</li>
+
+
+<li><i>"Motivic and analytic nearby fibers at infinity and bifurcation sets"</i> (with <a href="https://raibautm.perso.math.cnrs.fr/site/MichelRaibaut.html">M. Raibaut</a>) <br> &nbsp;&nbsp;&nbsp; – <a href="https://www.worldscientific.com/worldscibooks/10.1142/q0213">Arc Schemes and Singularities</a>, World Scientific Publishing, 197–220, 2020. (<a href="https://arxiv.org/abs/1810.06253">arXiv</a>)
+
+<button class="abstract" onclick="myFunction(6)">show abstract</button>
+
+<div class="hiddentext" id="b6"> 
+In this paper we use motivic integration and non-archimedean analytic geometry to study the singularities at infinity of the fibers of a polynomial map <i>f: 𝔸<sub>ℂ</sub><sup>d</sup> → 𝔸<sub>ℂ</sub><sup>1</sup></i>.
+We show that the motivic nearby cycles at infinity <i>S<sub>f,a</sub><sup>∞</sup></i> of <i>f</i> for a value <i>a</i> is a motivic generalization of the classical invariant <i>λ<sub>f</sub>(a)</i>, an integer that measures a lack of equisingularity at infinity in the fiber <i>f<sup>-1</sup>(a)</i>. 
+We then introduce a non-archimedean analytic nearby fiber at infinity <i>F<sub>f,a</sub><sup>∞</sup></i> whose motivic volume recovers the motive <i>S<sub>f,a</sub><sup>∞</sup></i>. 
+With <i>S<sub>f,a</sub><sup>∞</sup></i> and <i>F<sub>f,a</sub><sup>∞</sup></i> can be naturally associated a motivic and an analytic bifurcation sets respectively; we show that the first one always contains the second, and that both contain the classical topological bifurcation set of <i>f</i> if <i>f</i> has isolated singularities at infinity.
+</div>
+</li>
+
+
+
+				<li><i>"Links of sandwiched surface singularities and self-similarity"</i> (with <a href="http://www.cmls.polytechnique.fr/perso/favre/">C. Favre</a> and <a href="https://webusers.imj-prg.fr/~matteo.ruggiero/index-en.html">M. Ruggiero</a>) <br> &nbsp;&nbsp;&nbsp; – Manuscripta Mathematica, 162(1-2), 23–65, 2020 (<a href="https://arxiv.org/abs/1802.08594">arXiv</a>)
+
+<button class="abstract" onclick="myFunction(5)">show abstract</button>
+
+<div class="hiddentext" id="b5"> 
+We characterize sandwiched singularities in terms of their link in two different settings. 
+We first prove that such singularities are precisely the normal surface singularities having self-similar non-archimedean links. 
+We describe this self-similarity both in terms of Berkovich analytic geometry and of the combinatorics of weighted dual graphs. 
+We then show that a complex surface singularity is sandwiched if and only if its complex link can be embedded in a Kato surface in such a way that its complement remains connected.
+</div>
+</li>
+
+
+
+
+
+
+
+
+				<li><i>"Galois descent of semi-affinoid spaces"</i> (with <a href="https://www.mathstat.dal.ca/~dturchetti/">D. Turchetti</a>) <br> &nbsp;&nbsp;&nbsp; – Mathematische Zeitschrift, 290(3-4), 1085–1114, 2018
+ (<a href="https://arxiv.org/abs/1703.03698">arXiv</a>)
+
+<button class="abstract" onclick="myFunction(4)">show abstract</button>
+
+<div class="hiddentext" id="b4">
+We study the Galois descent of semi-affinoid non-archimedean analytic spaces. These are the non-archimedean analytic spaces which admit an affine special formal scheme as model over a complete discrete valuation ring, such as for example open or closed polydiscs or polyannuli. Using Weil restrictions and Galois fixed loci for semi-affinoid spaces and their formal models, we describe a formal model of a <i>K</i>-analytic space <i>X</i>, provided that <i>X</i>⊗<i><sub>K</sub>L</i> is semi-affinoid for some finite tamely ramified extension <i>L</i> of <i>K</i>. As an application, we study the forms of analytic annuli that are trivialized by a wide class of Galois extensions that includes totally tamely ramified extensions. In order to do so, we first establish a Weierstrass preparation result for analytic functions on annuli, and use it to linearize finite order automorphisms of annuli. Finally, we explain how from these results one can deduce a non-archimedean analytic proof of the existence of resolutions of singularities of surfaces in characteristic zero.
+</div>
+</li>
+
+
+
+				<li><i>"Normalized Berkovich spaces and surface singularities"</i> <br> &nbsp;&nbsp;&nbsp; – Transactions of the American Mathematical Society, 370(11), 7815–7859, 2018
+ (<a href="https://www.arxiv.org/abs/1412.4676">arXiv</a>)
+<button class="abstract" onclick="myFunction(3)">show abstract</button>
+
+<div class="hiddentext" id="b3">
+We define normalized versions of Berkovich spaces over a trivially valued field <i>k</i>, obtained as quotients by the action of ℝ<sub>>0</sub> defined by rescaling semivaluations. We associate such a normalized space to any special formal k-scheme and prove an analogue of Raynaud's theorem, characterizing categorically the spaces obtained in this way. This construction yields a locally ringed <i>G</i>-topological space, which we prove to be <i>G</i>-locally isomorphic to a Berkovich space over the field <i>k((t))</i> with a <i>t</i>-adic valuation. These spaces can be interpreted as non-archimedean models for the links of the singularities of <i>k</i>-varieties, and allow to study the birational geometry of k-varieties using techniques of non-archimedean geometry available only when working over a field with non-trivial valuation. In particular, we prove that the structure of the normalized non-archimedean links of surface singularities over an algebraically closed field <i>k</i> is analogous to the structure of non-archimedean analytic curves over <i>k((t))</i>, and deduce characterizations of the essential and of the log essential valuations, i.e. those valuations whose center on every resolution (respectively log resolution) of the given surface is a divisor.
+</div>
+</li>
+
+
+				<li><i>"Faithful realizability of tropical curves"</i> (with <a href="http://www.math.harvard.edu/~mwcheung/">M. Cheung</a>, <a href="https://math.osu.edu/people/park.2720">J. Park</a>, and <a href="http://www.martinulirsch.net/home">M. Ulirsch</a>) <br> &nbsp;&nbsp;&nbsp; – International Mathematics Research Notices, 2016(15), 4706–4727, 2016 (<a href="https://www.arxiv.org/abs/1410.4152">arXiv</a>)
+<button class="abstract" onclick="myFunction(2)">show abstract</button>
+
+<div class="hiddentext" id="b2">
+We study whether a given tropical curve Γ in ℝ<sup>n</sup> can be realized as the tropicalization of an algebraic curve whose non-archimedean skeleton is faithfully represented by Γ. We give an affirmative answer to this question for a large class of tropical curves that includes all trivalent tropical curves, but also many tropical curves of higher valence. We then deduce that for every metric graph <i>G</i> with rational edge lengths there exists a smooth algebraic curve in a toric variety whose analytification has skeleton <i>G</i>, and the corresponding tropicalization is faithful. Our approach is based on a combination of the theory of toric schemes over discrete valuation rings and logarithmically smooth deformation theory, expanding on a framework introduced by Nishinou and Siebert.
+</div>
+</li>
+
+
+				<li><i>"Normalized non-archimedean links and surface singularities"</i>  <br> &nbsp;&nbsp;&nbsp; – Comptes Rendus Mathématique, 352(9), 719–723, 2014 (<a href="Fantini_Lorenzo_CRAS.pdf">Pdf</a>)
+<button class="abstract" onclick="myFunction(1)">show abstract</button>
+
+<div class="hiddentext" id="b1">
+This note announced some of the results of the paper <i>"Normalized Berkovich spaces and surface singularities"</i>.
+</div></li>
+			</ol>
+
+
+</div>
+</section>
+
+
+<!--
+<div class="transparent">
+</div>
+-->
+
+
+
+
+
+<section id="s3">
+<div class="text">
+
+    <h2>Teaching</h2>
+
+
+<p>
+This section will eventually be updated.
+Students of the <i>Bacherlor of Science</i> looking for information should find it on <a href="https://moodle.polytechnique.fr/">Moodle</a>, <a href="https://synapses.polytechnique.fr">SynapseS</a>, or get in touch with me by email.
+
+<!--I am currently TA'ing the class Analysis (MAA202) for the <a href="https://portail.polytechnique.edu/bachelor/en">Bachelor</a> of the <a href="https://www.polytechnique.edu">École Polytechnique</a>. 
+Students looking for information should find it on <a href="https://synapses.polytechnique.fr">SynapseS</a> or get in touch with me by email.
+-->
+</p>
+
+
+</div>
+</section>
+
+
+
+
+
+
+<section id="s4">
+<div class="text">
+
+    <h2>Curriculum Vitae</h2>
+
+
+<!-- Timeline CV -->
+	<div class="container">
+
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2021-today: Professeur Monge</h4>
+         <p>École Polytechnique (France).</p>
+      </div>
+   </div>
+
+   
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2019-2021: Research Fellow</h4>
+         <p>Goethe Universität Frankfurt (Germany), in the group of <a href="https://www.uni-frankfurt.de/50278019/Prof__Dr__Annette_Werner">Annette Werner</a>. Supported by the <a href="https://www.humboldt-foundation.de">Alexander von Humboldt Foundation</a>.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2018-2019: Postdoctoral fellow</h4>
+         <p>Aix-Marseille Université (France), <a href="https://www.i2m.univ-amu.fr/ANR-LISA-2017-2021">ANR LISA</a>.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2016-2018: Postdoctoral fellow</h4>
+         <p>Sorbonne Université (France), <a href="http://www.lama.univ-savoie.fr/~comte/DEFIGEO/home.html">ANR DEFIGEO</a>.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2014-2016: Postdoctoral fellow</h4>
+         <p>École Polytechnique (France), in the group of <a href="http://www.cmls.polytechnique.fr/perso/favre/index.html">Charles Favre</a>.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2010-2014: Doctoral fellow</h4>
+         <p>University of Leuven (Belgium).</p><p>
+            My PhD advisor was <a href="https://perswww.kuleuven.be/~u0025871/">Johannes Nicaise</a>.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h4>2008-2010: Erasmus Mundus Master <a href="http://algant.eu/">ALGANT</a>.</h4>
+         <p>I spent the first year of my Master degree at the University of Padova (Italy) and the second one at the University of Paris-Sud, Orsay (France).</p>
+      </div>
+   </div>
+	</div>
+<!-- End Timeline CV -->
+
+
+
+
+If you want to find out more about me, download a complete <a href="Fantini_Lorenzo_CV.pdf">CV</a> (also available <a href="Fantini_Lorenzo_CV_french.pdf">in French</a>).
+
+</div>
+</section>
+
+
+
+
+
+
+<section id="s5">
+<div class="text">
+
+    <h2>Links</h2>
+
+
+I'm collecting here some links, mainly for my convenience.
+I share them in case they might be useful to someone else.
+
+
+	    <h3>Seminars</h3>
+
+<!--
+The upcoming talks and activities of my research group in Frankfurt are listed <a href="https://www.uni-frankfurt.de/49952640/Aktuelle_Vortr%C3%A4ge_und_Veranstaltungen_am_Schwerpunkt">here</a>.
+
+
+	<br><br>
+-->
+
+Tropical Geometry in Frankfurt (TGiF), a seminar series on tropical geometry which I organize together with <a href="https://sites.google.com/view/andreasgross/home">Andreas Gross</a> and <a href="https://www.martinulirsch.net/">Martin Ulirsch</a>, has moved online!
+Information about the upcoming sessions can be found <a href="https://researchseminars.org/seminar/TGiZ">here</a>.
+
+
+
+<!--	Here are some of the activities taking place in Marseille:
+			<ul>
+				<li> <a href="https://www.i2m.univ-amu.fr/Seminaire-Geometrie-Complexe">Séminaire Géométrie Complexe</a>, CMI.</li>
+				<li> <a href="https://www.i2m.univ-amu.fr/Seminaire-Geometrie-Dynamique-et-Topologie-GDT">Séminaire Géométrie, Dynamique et Topologie</a>, CMI.</li>
+				<li> <a href="https://www.i2m.univ-amu.fr/Seminaire-Singularites">Séminaire Singularités</a>, <a href="http://frumam.cnrs-mrs.fr">FRUMAM</a>.</li>
+				<li> <a href="https://www.i2m.univ-amu.fr/Groupe-de-travail-Singulier">Groupe de travail singulier</a>, FRUMAM.</li>
+				<li> <a href="https://www.i2m.univ-amu.fr/perso/erwan.rousseau/o-minimal.html">Groupe de travail Géométrie o-minimale
+</a>, CMI.</li>
+			</ul>-->
+			<br><br>
+
+	Here is a (rather old) list of some interesting seminars taking place in or around Paris:
+			<ul>
+				<li> <a href="https://www.imj-prg.fr/gestion/evenement/affEvenement/77">Séminaire Géométries et Topologie</a>, Jussieu.</li>
+<!--	<li> <a href="https://webusers.imj-prg.fr/~penka.georgieva/Geotrop/Geotrop.html">Séminaire de Géométrie Tropicale</a>, Jussieu.</li> -->
+				<li> <a href="https://webusers.imj-prg.fr/~penka.georgieva/EGSeminar.html">Séminaire de Géométrie Énumérative</a>, Jussieu.</li>
+				<li> <a href="https://www.imj-prg.fr/tga/sem-ga/">Séminaire de Géométrie Algébrique</a>, Jussieu.</li>
+				<li> <a href="https://www.imj-prg.fr/gestion/evenement/affEvenement/61">Séminaire sur les Singularités</a>, Paris 7.</li>
+				<li> <a href="https://indico.math.cnrs.fr/category/287/">RéGA</a>, IHP.</li>
+				<li> <a href="http://gtm.imj-prg.fr/">Géométrie et Théorie des Modèles</a>, ENS.</li>
+				<li> <a href="https://portail.polytechnique.edu/cmls/fr/seminaire-geometrie">Séminaire de Géométrie</a>, École Polytechnique.</li>
+				<li> <a href="http://www.math.u-psud.fr/-Arithmetique-et-Geometrie-156-?lang=fr">SAGA</a>, Orsay.</li>
+				<li> <a href="https://www.ihes.fr/en/events/#seminars">Seminars</a>, <a href="https://www.ihes.fr/en/events/#cours">lecture series</a> and <a href="https://www.ihes.fr/en/events/#conferences">conferences</a> at IHES.</li>
+				<li> <a href="http://www.bourbaki.ens.fr/">Séminaire Bourbaki</a>, IHP.</li>
+			</ul>
+
+
+
+
+
+
+	    <h3>Upcoming events</h3>
+
+	And here are some upcoming events that caught my eye.
+	I will most likely attend only a few of them:
+     <div id="includedContent"></div>
+
+
+<br>
+
+Calendar of events at CIRM, Luminy: <a href="https://conferences.cirm-math.fr/2021-calendar.html">2021</a>, <a href="https://conferences.cirm-math.fr/2022-calendar.html">2022</a>.
+
+<br><br>
+
+	Lists of conferences:
+			<ul>
+				<li> <a href="http://mathmeetings.net/ag">MathMeetings.net</a> (Algebraic Geometry tag).</li>
+				<li> <a href="http://math.stanford.edu/~vakil/conferences.html">List of conferences in Algebraic Geometry</a> by Ravi Vakil.</li>
+				<li> <a href="https://kskedlaya.org/confs.cgi">List of conferences in Arithmetic Geometry</a> by Kiran Kedlaya.</li>
+			</ul>
+
+<br>
+
+Some past events I attended are archived <a href="events_old.html">here</a>.
+
+
+
+
+			<h3>Videos</h3>
+
+There has never been a better time to watch some recorded math talks.
+Lots of videos of seminars can be found on the following pages.
+These should keep us busy for a while, but if you now of any other good sources please let me know and I'll add them to the list.
+
+
+			<ul class="miscellanea element">
+
+				<li> <a href="http://swc.math.arizona.edu/aws/index.html">Arizona Winter Schools</a>, Tucson (videos of courses in Arithmetic Geometry going back to 2008).</li>
+
+				<li> <a href="https://www.birs.ca/videos/">BIRS</a>, Banff (includes videos from CMO, Oaxaca).</li>
+
+				<li> <a href="https://library.cirm-math.fr/">CIRM</a>, Luminy.</li>
+
+				<li> <a href="https://www.claymath.org/library/video-catalogue">Clay Mathematics Institute</a>.</li>
+
+				<li> <a href="https://www.college-de-france.fr/site/audio-video/">Collège de France</a>, Paris.</li>
+
+				<li> <a href="https://www.fields.utoronto.ca/video-archive">Fields institute</a>, Toronto.</li>
+
+				<li> <a href="http://video.ias.edu/">IAS</a>, Princeton (direct YouTube link <a href="https://www.youtube.com/channel/UC8aRaZ6_0weiS50pvCmo0pw">here</a>).</li>
+
+				<li> ICM videos: Berlin 1998, Beijing 2002, Madrid 2006, and Hyderabad 2010 are <a href="https://www.mathunion.org/icm/icm-videos">here</a>, Seoul 2014 <a href="http://www.icm2014.org/vod/ICM-VOD-List.html">here</a> (direct YouTube link <a href="https://www.youtube.com/channel/UCCgMtd8GiwlJCV__D6WewLQ">here</a>, prize lectures <a href="http://www.icm2014.org/en/vod/public.html">here</a>), Rio de Janeiro 2018 <a href="http://www.icm2018.org/wp/icm-videos-youtube/">here</a> (direct YouTube link <a href="https://www.youtube.com/channel/UCnMLdlOoLICBNcEzjMLOc7w">here</a>)</li>
+
+				<li> <a href="https://www.youtube.com/channel/UC4R1IsRVKs_qlWKTm9pT82Q/">IHES</a>, Bures-Sur-Yvette.</li>
+
+				<li> <a href="https://www.youtube.com/channel/UCrKGv5WY5ryaIXEmnxKVxOQ">IHP</a>, Paris (includes the <i>Séminaire Bourbaki</i>).</li>
+
+				<li> <a href="https://www.msri.org/videos/dashboard">MSRI</a>, Berkeley.</li>
+
+				<li> <a href="http://scgp.stonybrook.edu/video_portal/">Simons Center</a>, Stony Brook.</li>
+
+			</ul>
+			
+And one site to rule them all:
+
+			<ul class="miscellanea element">
+
+				<li> <a href="https://researchseminars.org/">researchseminars.org</a></li>
+
+			</ul>
+
+
+<!-- Someday add coauthors? -->
+
+
+
+
+
+<p style="margin-top: 60px">
+<a href="https://github.com/lfantini/lfantini.github.io/tree/master/hard_to_find_papers">Here</a> I uploaded a couple old papers that I had some trouble finding or I had to scan myself. 
+Hopefully search engines will index them and this will save other people some time.
+</p>
+
+
+
+<p style="margin-top: 60px">
+I strongly believe in <a href="http://math.sfsu.edu/federico/">Federico Ardila</a>'s axioms:
+</p>
+<ol>
+<li>Mathematical potential is distributed equally among different groups, irrespective of geographic, demographic, and economic boundaries.</li>
+<li>Everyone can have joyful, meaningful, and empowering mathematical experiences.</li>
+<li>Mathematics is a powerful, malleable tool that can be shaped and used differently by various communities to serve their needs.</li>
+<li>Every student deserves to be treated with dignity and respect.</li>
+</ol>
+
+
+
+</div>
+</section>
+
+
+
+
+
+
+<footer>
+
+<div class="text">
+    <script> 
+    Months = ['January', 'Febraury', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; 
+    var DateModified = new Date(document.lastModified); 
+    document.write('<i>Last updated on '+Months[DateModified.getMonth()]+' '+DateModified.getDate()+', '+DateModified.getFullYear()+'.</i>') 
+    </script>
+&nbsp;
+    <button class="credits" onclick="myFunction(0); bottom()">expand footer</button>
+    <div class="hiddentext" id="b0" style="text-align:left">
+	<p>
+	The image of the wave in the header is open source and can be found <a href="https://openclipart.org/detail/230630/simple-waves">here</a>.
+The Mœbius who drew the tree pictured above is not <a href="https://en.wikipedia.org/wiki/August_Ferdinand_M%C3%B6bius">August Ferdinand Möbius</a> (as in Möbius band); his real name was <a href="https://en.wikipedia.org/wiki/Jean_Giraud">Jean Giraud</a> (nope, not that <a href="https://en.wikipedia.org/wiki/Jean_Giraud_(mathematician)">Jean Giraud</a>!).
+	</p>
+	<p>
+	Many bits and pieces of code have been copied from various places online; in particular I used Rokas Lengvenis's jQuery plugin <a href="https://github.com/RokasLeng/scroller">scroller</a>. 
+	</p>
+	<p>
+	Bonus for the reader who made it all the way down here: <a href="rer">here</a>'s a simple page that I use to quickly check the real time schedule of the RER B (Parisian public transport). It's pre-set to the stations I use(d), optimized for my phone's screen, and built to be installed as an Android web app. It uses an unofficial RATP <a href="https://github.com/pgrimaud/horaires-ratp-api">API</a> developed by Pierre Grimaud.
+	</p>
+    </div>
+</div>
+
+</footer>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="jquery.js"></script> -->
+<script src="jquery.scroller.js"></script>
+<script>
+$(document).ready(function () {
+  $('.main-nav').scroller();
+});
+</script>
+
+
+   <!-- uses jquery to include the list of links  -->
+<script> 
+    $(function(){
+      $("#includedContent").load("events.html"); 
+    });
+</script> 
+
+
+   <!-- js script for the show/hide buttons  -->
+<script>
+function myFunction(key) {
+    var x = document.getElementById('b'+ key);
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    } else {
+        x.style.display = 'block';
+    }
+}
+function bottom() {
+window.scrollTo(0,document.body.scrollHeight);
 }
 </script>
-  </body>
+
+    <!-- jQuery script to change text of buttons -->
+<script>
+$("button.abstract").on("click", function(){
+    if($(this).text()=="show abstract")
+    {
+        $(this).text("hide abstract");
+    } else {
+        $(this).text("show abstract");
+    }
+    $(".ISProductBody").toggle(); 
+
+    return false;
+});
+
+$("button.credits").on("click", function(){
+    if($(this).text()=="expand footer")
+    {
+        $(this).text("collapse footer");
+    } else {
+        $(this).text("expand footer");
+    }
+    $(".ISProductBody").toggle(); 
+
+    return false;});
+</script>
+
+
+
+</body>
 </html>
