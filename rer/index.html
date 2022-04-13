@@ -17,34 +17,37 @@
       <table class="table">
         <tbody>
           <tr class="tr-header">
-            <td class="td1">
+            <td class="td1" style="position: relative">
               <a href="plan-metro-paris.jpg"><img src="rerB2.png" alt="link to metro plan" class="rer-logo"></a> 
-              <p>Lozère — Bures</p>
+              <p style="margin-top:80px"> Bures</p>
             </td>
             <td class="td2-header"><p><%= current_time %></p></td>
           </tr>
 
-          <% _.map(horaires2, function (horaire, i) { %>
-            <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal">
-              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('S','Robinson').replace('P','Saint-Rémy-les-Chevreuses').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace') %> (<%= horaire.code %>)</p></td>
+          <% _.map(horaires, function (horaire, i) { %>
+            <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal" style="border-bottom:1px solid #d6dcd8">
+              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('A','Gare du Nord').replace('E','Aéroport CDG 2').replace('I','Mitry-Claye').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace').replace('Q','La Plaine - Stade de France') %> (<%= horaire.code %>)</p></td>
               <td class="td2"><p><%= horaire.message.replace('Train ','') %> </p></td>
             </tr>
           <% }) %>
-          <tr class="tr-trafic">
-            <td class="tdfull" colspan="2"><p><i><%= traffic %></i></p></td>
-          </tr>
+
 
           <tr class="tr-header">
             <td class="td1">
-              <p><br/>Bures — Lozère</p>
+                <p><br/>Lozère</p>
             </td>
           </tr>
-          <% _.map(horaires, function (horaire, i) { %>
+          <% _.map(horaires2, function (horaire, i) { %>
             <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal">
-              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('A','Gare du Nord').replace('E','Aéroport CDG 2').replace('I','Mitry-Claye').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace').replace('Q','La Plaine - Stade de France') %> (<%= horaire.code %>)</p></td>
+              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('S','Robinson').replace('P','Saint-Rémy-les-Chevreuses').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace') %> (<%= horaire.code %>)</p></td>
               <td class="td2"><p><%= horaire.message.replace('Train ','') %></p></td>
             </tr>
           <% }) %>
+
+          <tr class="tr-trafic">
+            <td class="tdfull" colspan="2"><p><i><%= traffic %></i></p></td>
+          </tr>
+          
         </tbody>
       </table>      
     </script>
