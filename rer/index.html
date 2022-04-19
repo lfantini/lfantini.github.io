@@ -26,7 +26,7 @@
 
           <% _.map(horaires, function (horaire, i) { %>
             <tr class="<% if(i%2 == 0) { %>bg-tr <% } %>tr-normal" style="border-bottom:1px solid #d6dcd8">
-              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('A','Gare du Nord').replace('E','Aéroport CDG 2').replace('I','Mitry-Claye').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('U','Laplace').replace('Q','La Plaine - Stade de France') %> (<%= horaire.code %>)</p></td>
+              <td class="td1"><p><%= horaire.code.charAt(0).replace('C','Cité Universitaire').replace('A','Gare du Nord').replace('E','Aéroport CDG 2').replace('I','Mitry-Claye').replace('K', 'Massy-Palaiseau').replace('W','Ne prend pas de voyageurs').replace('J','Denfert-Rocherau').replace('L','Orsay-Ville').replace('M','Châtelet Les Halles').replace('U','Laplace').replace('Q','La Plaine - Stade de France') %> (<%= horaire.code %>)</p></td>
               <td class="td2"><p><%= horaire.message.replace('Train ','') %> </p></td>
             </tr>
           <% }) %>
